@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css"></link>
+    <title>Siemens Drive Gateway</title>
+  </head>
+
+  <body>
+    <form action="/cgi-bin/siemens-restart.sh" method="get">
+    <input type="hidden" name="my_ip" value="$my_ip">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <div class="alert alert-secondary" role="alert">
+              <h2>New Settings Summary</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5 mx-auto ">
+            <table class="table table-striped table-bordered table-sm">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Setting</th>
+                  <th scope="col">Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td>my_ip:</td><td>$my_ip</td>
+                </tr>
+                <tr>
+                  <th>2</th>
+                  <td>subnet_mask:</td><td>$subnet_mask</td>
+                </tr>
+                <tr>
+                  <th>3</th>
+                  <td>gateway_ip:</td><td>$gateway_ip</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col text-center">
+            <div class="alert alert-secondary" role="alert">
+              <h5>Settings above have now been saved to the PLC's flash. They will take effect
+                  after cycling power or after clicking <strong>Restart</strong>.</h5>
+              <div class="row justify-content-center">
+                <div class="col-5">
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Restart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!--
+    -->
+    <script src="/../js/jquery-3.3.1.min.js"></script>
+    <script src="/../js/bootstrap.bundle.min.js"></script>
+    <script>
+    </script>
+  </body>
+</html>

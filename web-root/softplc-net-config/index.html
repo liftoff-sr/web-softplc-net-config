@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <title>SoftPLC Network Configuration</title>
+    <style>
+      th {
+        background-color: #e9ecef;
+      }
+    </style>
+  </head>
+  <body>
+  <!--
+
+    Bootstrap 4.1 is used and installed within the box.  Best to edit this
+    HTML source with a simple text editor for that reason and not some
+    WYSIWYG editor that munges the new styling issues.  JEdit is
+    recommended.
+
+    https://getbootstrap.com/docs/4.1/components/list-group/#javascript-behavior
+  -->
+
+    <form action="/cgi-bin/form-handler.sh" method="post" onsubmit="return(validate_form());" name="form">
+      <div class="container">
+
+        <div class="row">
+          <div class="col text-center">
+            <div class="alert alert-secondary" role="alert">
+              <a href="https://softplc.com">
+                <img class="align-self-center img-fluid" alt="splclogo" style="max-width: 33%" src="/siemens-drive-gateway/images/sm_splc_colorlogo_trans.png"/>
+              </a>
+              <h2 style="color: #008CA3;">SoftPLC Network Configuration</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-3">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action active" id="ethernet-tab" data-toggle="list" href="#ethernet" role="tab" aria-controls="ethernet">Ethernet</a>
+            </div>
+          </div>
+
+          <div class="col-9">
+
+            <div class="tab-content" id="nav-tabContent">
+
+              <div class="tab-pane fade show active" id="ethernet" role="tabpanel" aria-labelledby="ethernet-tab">
+                <div class="form-group">
+                  <label for="my_ip">My IP Address</label>
+                  <input type="text" class="form-control" name="my_ip" id="_my_ip" aria-describedby="ip_help"></input>
+                  <small id="ip_help" class="form-text text-muted">Enter the IP Address of this drive gateway, e.g. 192.168.1.100</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="subnet_mask">My Subnet Mask</label>
+                  <input type="text" class="form-control" name="subnet_mask" id="_subnet_mask" aria-describedby="subnet_mask_help"></input>
+                  <small id="subnet_mask_help" class="form-text text-muted">Enter the Subnet Mask of this drive gateway's ethernet interface, e.g. 255.255.255.0</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="gateway_ip">Default Router IP Address</label>
+                  <input type="text" class="form-control" name="gateway_ip" id="_gateway_ip" aria-describedby="gateway_ip_help"></input>
+                  <small id="gateway_ip_help" class="form-text text-muted">Enter the IP address of the default internet gateway, e.g. 192.168.1.1</small>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-end">
+          <div class="col-9">
+            <button id="subbtn" class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+
+
+    <!-- JavaScript
+    jQuery first, then Popper.js, then Bootstrap JS.  But the bundle version
+    of bootstrap has Popper.js built into it.
+    -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="siemens-drive-gateway/network-handler.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,8 @@
+# See "man interfaces(5)" for info.
+
+auto ethernet0
+iface ethernet0 inet static
+	address MY_CIDR
+	gateway GATEWAY_CIDR
+	dns-nameserver 8.8.8.8
+	dns-nameserver 8.8.4.4

@@ -1,0 +1,11 @@
+[Unit]
+Description=HTTP Daemon from Busybox
+After=network.target
+
+[Service]
+ExecStart=/bin/busybox httpd -h /web-root/
+Type=forking
+
+[Install]
+WantedBy=multi-user.target
+Alias=httpd.service
