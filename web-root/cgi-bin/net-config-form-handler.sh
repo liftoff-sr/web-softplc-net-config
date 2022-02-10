@@ -6,7 +6,7 @@ WEBROOT=/web-root
 # assume PWD uses cgi-bin from this:
 #echo "pwd: "`pwd`
 
-CFG="$WEBROOT/siemens-drive-gateway/config"
+CFG="$WEBROOT/softplc-net-config/config"
 
 # establish some initial values, the http POST will overwrite them later.
 # but if this is executed as a repeat get, then there will be no query data
@@ -41,7 +41,7 @@ sed -E \
 
 echo "echo \"" > /tmp/temp.out
 # escape the double quotes
-sed -r -e 's@[\"]@\\"@g' ../siemens-drive-gateway/saved.html >> /tmp/temp.out
+sed -r -e 's@[\"]@\\"@g' ../softplc-net-config/saved.html >> /tmp/temp.out
 
 echo "\"" >> /tmp/temp.out
 

@@ -8,11 +8,10 @@ source $WEBROOT/cgi-bin/cgi-funcs.sh
 
 cgi_getvars GET my_ip
 
-env > /tmp/debug.log
+#env > /tmp/debug.log
 
 
-
-# redirect user to [new] "$my_ip" index.html
+# Redirect user to [new] "$my_ip" index.html after a 3 second delay
 echo "\
 Content-type: text/html; charset=UTF-8
 Connection: close

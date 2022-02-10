@@ -10,12 +10,12 @@ function validate_form()
 function on_doc_ready()
 {
     $.ajax({
-        url: "siemens-drive-gateway/config/LAST-NETWORKS.LST",
+        url: "softplc-net-config/config/LAST-NETWORKS.LST",
         //async: false,
         context: document.body,
 
         error : function(jqXHR, textStatus, errorThrown ) {
-                alert( "siemens-drive-gateway/config/LAST-NETWORKS.LST not found" );
+                alert( "softplc-net-config/config/LAST-NETWORKS.LST not found" );
             },
 
         dataType: "script",
