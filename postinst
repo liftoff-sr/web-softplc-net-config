@@ -3,4 +3,4 @@
 
 systemctl daemon-reload
 
-systemctl enable --now http-busybox
+systemctl enable --now web-softplc-net-config

@@ -32,7 +32,7 @@
           <div class="col text-center">
             <div class="alert alert-secondary" role="alert">
               <a href="https://softplc.com">
-                <img class="align-self-center img-fluid" alt="splclogo" style="max-width: 33%" src="/softplc-net-config/images/sm_splc_colorlogo_trans.png"/>
+                <img class="align-self-center img-fluid" alt="splclogo" style="max-width: 33%" src="/images/sm_splc_colorlogo_trans.png"/>
               </a>
               <h2 style="color: #008CA3;">SoftPLC Network Configuration</h2>
             </div>
@@ -54,19 +54,19 @@
                 <div class="form-group">
                   <label for="my_ip">My IP Address</label>
                   <input type="text" class="form-control" name="my_ip" id="_my_ip" aria-describedby="ip_help"></input>
-                  <small id="ip_help" class="form-text text-muted">Enter the IP Address of this drive gateway, e.g. 192.168.1.100</small>
+                  <small id="ip_help" class="form-text text-muted">Enter the IP Address of this PLC, e.g. 192.168.1.100</small>
                 </div>
 
                 <div class="form-group">
                   <label for="subnet_mask">My Subnet Mask</label>
                   <input type="text" class="form-control" name="subnet_mask" id="_subnet_mask" aria-describedby="subnet_mask_help"></input>
-                  <small id="subnet_mask_help" class="form-text text-muted">Enter the Subnet Mask of this drive gateway's ethernet interface, e.g. 255.255.255.0</small>
+                  <small id="subnet_mask_help" class="form-text text-muted">Enter the Subnet Mask of this PLC's ethernet interface, e.g. 255.255.255.0</small>
                 </div>
 
                 <div class="form-group">
                   <label for="gateway_ip">Default Router IP Address</label>
                   <input type="text" class="form-control" name="gateway_ip" id="_gateway_ip" aria-describedby="gateway_ip_help"></input>
-                  <small id="gateway_ip_help" class="form-text text-muted">Enter the IP address of the default internet gateway, e.g. 192.168.1.1</small>
+                  <small id="gateway_ip_help" class="form-text text-muted">Enter the IP address of the default internet gateway, e.g. 192.168.1.1 or leave blank</small>
                 </div>
 
               </div>
@@ -91,7 +91,7 @@
     -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="softplc-net-config/net-config.js"></script>
+    <script src="net-config.js"></script>
 
   </body>
 </html>

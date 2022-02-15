@@ -5,53 +5,56 @@ project( web-softplc-net-config )
 
 cmake_minimum_required( VERSION 3.5 FATAL_ERROR )
 
-set( CMAKE_MODULE_PATH /opt/gatecraft/softplc-toolkit/cmake/Modules )
-
-include(DebFunctions)
-
 set( CPACK_PACKAGE_VERSION_MAJOR 1 )
 
-set( CPACK_PACKAGE_VERSION_MINOR 0 )        # 9-Feb-2020
+set( CPACK_PACKAGE_VERSION_MINOR 1 )        # 15-Feb-2020
+#set( CPACK_PACKAGE_VERSION_MINOR 0 )        # 9-Feb-2020
 
 set( CPACK_PACKAGE_VERSION_PATCH 0 )
 set( CPACK_PACKAGE_CONTACT "Dick Hollenbeck <dick@softplc.com>" )
 set( CPACK_PACKAGE_DESCRIPTION_SUMMARY "SoftPLC Network Configuration Web UI" )
 
-install(
-    FILES
-        cgi-funcs.sh
-    DESTINATION
-        web-root/cgi-bin
-    )
+set( DOCROOT web-root/softplc-net-config )
 
 install(
     FILES
-        http-busybox.service
+        web-softplc-net-config.service
     DESTINATION
         etc/systemd/system
     )
 
 install(
     FILES
-        httpd.conf
+        web-softplc-net-config.conf
     DESTINATION
         etc
     )
 
 install(
     FILES
-        web-root/favicon.ico
-        web-root/index.html
+        ${DOCROOT}/httpd.conf
     DESTINATION
-        web-root
+        ${DOCROOT}
     )
 
 install(
     FILES
-        web-root/cgi-bin/net-config-form-handler.sh
-        web-root/cgi-bin/net-config-restart.sh
+        ${DOCROOT}/favicon.ico
+        ${DOCROOT}/index.html
+        js
+        css
     DESTINATION
-        web-root/cgi-bin
+        ${DOCROOT}
+    )
+
+install(
+    FILES
+        ${DOCROOT}/cgi-bin/net-config-form-handler.sh
+        ${DOCROOT}/cgi-bin/net-config-restart.sh
+        ${DOCROOT}/cgi-bin/net-config-read-current-settings.sh
+        ${DOCROOT}/cgi-bin/cgi-funcs.sh
+    DESTINATION
+        ${DOCROOT}/cgi-bin
     PERMISSIONS
         OWNER_READ  OWNER_WRITE OWNER_EXECUTE
         GROUP_READ              GROUP_EXECUTE
@@ -60,33 +63,33 @@ install(
 
 install(
     FILES
-        web-root/softplc-net-config/favicon.ico
-        web-root/softplc-net-config/index.html
-        web-root/softplc-net-config/saved.html
-        web-root/softplc-net-config/net-config.js
+        ${DOCROOT}/favicon.ico
+        ${DOCROOT}/index.html
+        ${DOCROOT}/saved.html
+        ${DOCROOT}/net-config.js
     DESTINATION
-        web-root/softplc-net-config
+        ${DOCROOT}
     )
 
 install(
     FILES
-        web-root/softplc-net-config/config/NETWORKS.LST
-        web-root/softplc-net-config/config/LAST-NETWORKS.LST
+        ${DOCROOT}/config/NETWORKS.LST
     DESTINATION
-        web-root/softplc-net-config/config
+        ${DOCROOT}/config
     )
 
 install(
     FILES
-        web-root/softplc-net-config/images/sm_splc_colorlogo_trans.png
+        ${DOCROOT}/images/sm_splc_colorlogo_trans.png
     DESTINATION
-        web-root/softplc-net-config/images
+        ${DOCROOT}/images
     )
 
-add_conffiles(
-    /web-root/softplc-net-config/config/NETWORKS.LST
-    /web-root/softplc-net-config/config/LAST-NETWORKS.LST
+
+file( WRITE ${CMAKE_BINARY_DIR}/conffiles
+    "/etc/http-net-config.conf" "\n"
     )
+set( CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA ${CMAKE_BINARY_DIR}/conffiles )
 
 
 set( CMAKE_INSTALL_PREFIX "" )

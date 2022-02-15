@@ -1,7 +1,7 @@
 #!/bin/sh
 # must be bash not dash
 
-WEBROOT=/web-root
+WEBROOT=/web-root/softplc-net-config
 LOGFILE=/tmp/restart.log
 
 source $WEBROOT/cgi-bin/cgi-funcs.sh
